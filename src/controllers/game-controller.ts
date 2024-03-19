@@ -46,4 +46,3 @@ function determineNextCellState(cell: number, neighbors: number): number {
     return cell;
   }
 };
-

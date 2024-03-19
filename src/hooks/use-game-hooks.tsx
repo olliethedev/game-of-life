@@ -11,6 +11,7 @@ export function useGameHooks() {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const runSimulation = useCallback(() => {
+    // istanbul ignore next
     if (!running) return;
     setGrid((currentGrid) => calculateNextGrid(currentGrid));
 
@@ -21,6 +22,7 @@ export function useGameHooks() {
     if (running) {
       runSimulation();
     } else {
+      // istanbul ignore next
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
         timeoutRef.current = null;

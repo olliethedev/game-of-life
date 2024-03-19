@@ -17,10 +17,19 @@
         "name": "next"
       }
     ],
+    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "node_modules/@types/jest",
+    "node_modules/@testing-library/jest-dom"
+, "jest.setup.js"  ],
+  "exclude": ["node_modules"],
+  "types": ["@types/jest", "@testing-library/jest-dom"]
 }

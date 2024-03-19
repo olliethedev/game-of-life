@@ -1,15 +1,17 @@
 import React from "react";
 
 interface CellProps {
+  testId: string;
   isAlive: boolean;
   toggleCell: () => void;
   startDragging: () => void;
   dragging: boolean;
 }
 
-function Cell({ isAlive, toggleCell, startDragging, dragging }: CellProps) {
+function Cell({ testId, isAlive, toggleCell, startDragging, dragging }: CellProps) {
   return (
     <div
+      data-testid={testId}
       onMouseDown={() => {
         startDragging();
         toggleCell();

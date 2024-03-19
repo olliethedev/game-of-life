@@ -15,6 +15,7 @@ function Grid({ grid, toggleCell, dragging, setDragging }: GridProps) {
     return grid.flatMap((row, rowIndex) =>
       row.map((cell, colIndex) => (
         <Cell
+          testId={`cell-${rowIndex}-${colIndex}`}
           key={`${rowIndex}-${colIndex}`}
           isAlive={Boolean(cell)}
           toggleCell={() => toggleCell(rowIndex, colIndex)}
@@ -27,6 +28,7 @@ function Grid({ grid, toggleCell, dragging, setDragging }: GridProps) {
 
   return (
     <div
+      data-testid="grid"
       className="grid"
       style={{ gridTemplateColumns: `repeat(${grid[0].length}, 20px)` }}
     >
