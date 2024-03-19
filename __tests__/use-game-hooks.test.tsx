@@ -3,7 +3,7 @@ import { useGameHooks } from "../src/hooks/use-game-hooks";
 import { initializeGrid } from "@/controllers/game-controller";
 
 describe("useGameHooks", () => {
-  it("initializes with the correct default state", () => {
+  test("initializes with the correct default state", () => {
     const { result } = renderHook(() => useGameHooks());
 
     expect(result.current.grid.length).toBe(
@@ -19,7 +19,7 @@ describe("useGameHooks", () => {
     expect(result.current.dragging).toBe(false);
   });
 
-  it("toggles the running state", () => {
+  test("toggles the running state", () => {
     const { result } = renderHook(() => useGameHooks());
 
     act(() => {
@@ -35,7 +35,7 @@ describe("useGameHooks", () => {
     expect(result.current.running).toBe(false);
   });
 
-  it("updates the grid when toggling a cell state", () => {
+  test("updates the grid when toggling a cell state", () => {
     const { result } = renderHook(() => useGameHooks());
 
     act(() => {
@@ -51,7 +51,7 @@ describe("useGameHooks", () => {
     expect(result.current.grid[0][0]).toBe(0);
   });
 
-  it("updates the grid on simulation run", async () => {
+  test("updates the grid on simulation run", async () => {
     const { result } = renderHook(() => useGameHooks());
 
     act(() => {
@@ -63,7 +63,7 @@ describe("useGameHooks", () => {
     );
   });
 
-  it("updates the grid size on window resize", () => {
+  test("updates the grid size on window resize", () => {
     const { result } = renderHook(() => useGameHooks());
 
     act(() => {
@@ -80,7 +80,7 @@ describe("useGameHooks", () => {
     );
   });
 
-  it("cleans up the running simulation on unmount", () => {
+  test("cleans up the running simulation on unmount", () => {
     const { result, unmount } = renderHook(() => useGameHooks());
 
     act(() => {
